@@ -1,11 +1,22 @@
 <script>
 	export let name;
+	let count = 0;
+	$: doubled = count * 2;
+
+function incrementCount() {
+	count++;
+	console.log(`teller trykket på ${count}`);
+}
 </script>
 
 <main>
 	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
 	<p>Tester litt funksjonalitet</p>
+	<button on:click={incrementCount}>
+	Klikket på tellerknappen {count} {count ===1 ? 'gang' : 'ganger'}</button>	
+
+	<p>{count} doblet er {doubled}</p>
+	
 </main>
 
 <style>
